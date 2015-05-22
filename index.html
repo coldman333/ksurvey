@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>survey</title>
+	  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+  <link rel="stylesheet" href="css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="import" href="question/checkbox.html">
+        <link rel="import" href="question/radio.html">
+</head>
+<body>
+
+<div class="container">
+     <div class="row">
+    <div class="col-md-4">
+    	<div class="checkbox"></div>   
+    </div>
+    <div class="col-md-8">
+      <div class="checkbox"></div>   
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6">
+    	  <div class="checkbox"></div>      
+    </div>
+    <div class="col-md-6">
+    	  <div class="checkbox"></div>   
+     </div>
+    </div>
+
+      <div class="row">
+        <div class="col-md-4">
+        	  <div class="checkbox"></div>   
+        </div>
+        <div class="col-md-4">
+          <div class="checkbox"></div>   
+          
+
+        </div>
+          <div class="col-md-4">
+        	   <div class="checkbox"></div>   
+        </div>
+
+     </div>
+</div>
+
+
+<div class="container">
+     <div class="row">
+    <div class="col-md-4">
+      <div class="radio"></div>   
+    </div>
+    <div class="col-md-8">
+      <div class="radio"></div>   
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6">
+        <div class="radio"></div>      
+    </div>
+    <div class="col-md-6">
+        <div class="radio"></div>   
+     </div>
+    </div>
+
+      <div class="row">
+        <div class="col-md-4">
+            <div class="radio"></div>   
+        </div>
+        <div class="col-md-4">
+          <div class="radio"></div>   
+          
+
+        </div>
+          <div class="col-md-4">
+             <div class="radio"></div>   
+        </div>
+
+     </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+   
+    function supportsImports() {
+      return 'import' in document.createElement('link');
+    }
+
+    if (supportsImports()) {
+      console.log("supportsImports")
+    } else {
+    	 console.log("not supportsImports");
+    	 // do attach file
+    }
+
+    function addQestinBlock(filelink, selector){
+
+          var link = document.querySelector(filelink);
+          var content = link.import;
+
+          console.log(content);
+          // Grab DOM from warning.html's document.
+          var el = document.querySelectorAll(selector);
+          var elImport = content.querySelector('.question');
+
+         //console.log(el);
+          //console.log(elImport);
+          for(var i =0 ; i< el.length ;i++){
+             el[i].appendChild(elImport.cloneNode(true));
+
+          }
+
+    }
+
+function init(){
+
+    var checkbox = '[href="question/checkbox.html"]';
+    var selector = '.checkbox';
+    var radio = '[href="question/radio.html"]';
+    var selector2 = '.radio';
+
+    addQestinBlock(checkbox,selector);
+    addQestinBlock(radio,selector2);
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {  init(); });
+</script>
+</body>
+</html>
